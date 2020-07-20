@@ -1,13 +1,18 @@
 import React from 'react';
 import './mainImage.css';
+import { Image } from '../../models';
 
-const MainImage: React.FC = () => {
+interface IProps {
+  imageObj: Image
+}
+
+const MainImage: React.FC<IProps> = ({imageObj}) => {
   return (
     <div className="main-image__container">
-      <img src="/img/img1.jpg" alt="img" className="main-image__img" />
+      <img src={imageObj.img}alt={imageObj.title} className="main-image__img" />
 
       <div className="main-image__title-container">
-        <h2 className="main-image__title">Title</h2>
+        <h2 className="main-image__title">{imageObj.title}</h2>
       </div>
     </div>
   )

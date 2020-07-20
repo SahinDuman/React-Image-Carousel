@@ -1,7 +1,6 @@
 import React from 'react';
 import './imageNav.css';
 import { Image } from '../../models';
-import images from '../../data/carouselImages';
 
 interface IProps {
   images: Image[],
@@ -12,8 +11,20 @@ interface IProps {
 
 const ImageNav: React.FC<IProps> = ({images, activeId, setIndex, index}) => {
 
-  const next = () => setIndex(index + 1);
-  const prev = () => setIndex(index - 1);
+  const next = () => {
+    if(index < images.length - 1) setIndex(index + 1);
+    console.log(index)
+  }
+
+  const prev = () => {
+    if(index !== 0)  setIndex(index - 1)
+  };
+
+  const imgOnClick = (event:any) => {
+    const imgIndex:number = images.findIndex((image:Image) => image.id === event.target.id);
+    if (imgIndex !== -1) setIndex(imgIndex);
+
+  }
 
   return (
     <div className="image-nav">
@@ -24,19 +35,21 @@ const ImageNav: React.FC<IProps> = ({images, activeId, setIndex, index}) => {
       </div>
 
       <div className="image-nav__thumbnails-container">
-        {images.map((image:Image) => {
+        {images.map((image:Image, index:number) => {
 
           return(
-            <img className={'image-nav__thumbnail-img' + image.id === activeId ? 'active' : ''} />
+            <img 
+              key={index} 
+              src={image.img} 
+              alt={image.title} 
+              id={image.id}
+              onClick={imgOnClick}
+              className={image.id === activeId 
+                ? 'image-nav__thumbnail-img active-thumbnail' 
+                : 'image-nav__thumbnail-img'} 
+            />
           )
         })}
-
-      <img className="image-nav__thumbnail-img" src="/img/img1.jpg" alt="thumbnail" />
-        <img className="image-nav__thumbnail-img" src="/img/img2.jpg" alt="thumbnail" />
-        <img className="image-nav__thumbnail-img" src="/img/img3.jpg" alt="thumbnail" />
-        <img className="image-nav__thumbnail-img" src="/img/img4.jpg" alt="thumbnail" />
-        <img className="image-nav__thumbnail-img" src="/img/img5.jpg" alt="thumbnail" />
-        <img className="image-nav__thumbnail-img" src="/img/img6.jpg" alt="thumbnail" />
       </div>
 
     </div>

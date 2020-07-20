@@ -25,3 +25,7 @@
   margin: 0 0.5em;
   object-fit: cover;
 }
+
+.active-thumbnail {
+  border: 2px solid var(--main-color);
+}

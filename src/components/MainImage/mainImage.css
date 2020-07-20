@@ -19,4 +19,26 @@
   left: 0;
   padding: 2em;
   background-color: var(--main-color-opacity025);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+
+@media screen and (min-width: 1024px) {
+  .main-image__container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .main-image__img {
+    min-width: 100%;
+    filter: brightness(50%)
+  }
+
+  .main-image__title-container {
+    left: 4em;
+    padding: 3em;
+    max-width: 35%;
+  }
 }

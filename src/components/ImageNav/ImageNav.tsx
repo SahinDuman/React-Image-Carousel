@@ -20,7 +20,6 @@ const ImageNav: React.FC<IProps> = ({ images, activeId, setActiveImage}) => {
     if (index !== 0 && index !== -1) setActiveImage(images[index - 1]);
   };
 
-
   return (
     <div className="image-nav">
 

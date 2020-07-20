@@ -12,7 +12,7 @@ const MainImage: React.FC<IProps> = ({imageObj}) => {
       <img src={imageObj.img}alt={imageObj.title} className="main-image__img" />
 
       <div className="main-image__title-container">
-        <h2 className="main-image__title">{imageObj.title}</h2>
+        <h2 className="main-image__title">{imageObj.title} dsadadas dasd asd asd asd asd asdad </h2>
       </div>
     </div>
   )

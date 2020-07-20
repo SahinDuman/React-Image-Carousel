@@ -2,6 +2,7 @@
   background-color: var(--bg-color-dark-opacity075);
   padding: 1em 2em;
   width: 100%;
+  z-index: 1;
 }
 
 .image-nav__button-container {
@@ -28,4 +29,13 @@
 
 .active-thumbnail {
   border: 2px solid var(--main-color);
+}
+
+@media screen and (min-width: 1024px) {
+  .image-nav {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 45%;
+  }
 }

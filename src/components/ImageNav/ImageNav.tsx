@@ -30,8 +30,13 @@ const ImageNav: React.FC<IProps> = ({ images, activeId, setActiveImage }) => {
     <div className="image-nav">
 
       <div className="image-nav__button-container">
-        <button className="image-nav__button" onClick={prev}>Prev</button>
-        <button className="image-nav__button main-color bold" onClick={next}>Next</button>
+        <button
+          className={index === 0 ? "image-nav__button image-nav__button-disabled" : "image-nav__button"}
+          onClick={prev}>Prev</button>
+
+        <button
+          className={index === images.length - 1 ? "image-nav__button image-nav__button-disabled bold" : "image-nav__button main-color bold"}
+          onClick={next}>Next</button>
       </div>
 
       <div className="image-nav__thumbnails-container">

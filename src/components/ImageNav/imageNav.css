@@ -37,6 +37,11 @@
   border: 2px solid var(--main-color);
 }
 
+.image-nav__button-disabled {
+  pointer-events: none;
+  color: var(--gray-text);
+}
+
 @media screen and (min-width: 768px) {
   .image-nav {
     position: absolute;

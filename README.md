@@ -1,7 +1,5 @@
 # Image carousel with React and Typescript 
 
-### NPM
-
 Todos: 
 * Fix optimized images with better resolutions
 * Fix more error handling

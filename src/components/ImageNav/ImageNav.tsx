@@ -8,17 +8,23 @@ interface IProps {
   setActiveImage: (obj: Image) => void,
 }
 
-const ImageNav: React.FC<IProps> = ({ images, activeId, setActiveImage}) => {
+const ImageNav: React.FC<IProps> = ({ images, activeId, setActiveImage }) => {
+  const index: number = images.findIndex((image: Image) => image.id === activeId);
 
-  const index: number = images.findIndex((image:Image) => image.id === activeId);
-  
   const next = () => {
     if (index < images.length - 1 && index !== -1) setActiveImage(images[index + 1]);
+    scrollIntoView();
   }
 
   const prev = () => {
     if (index !== 0 && index !== -1) setActiveImage(images[index - 1]);
+    scrollIntoView();
   };
+
+  const scrollIntoView = () => {
+    const activeImg = document.querySelector('.active-thumbnail');
+    activeImg?.scrollIntoView({ behavior: 'smooth', inline: 'center' })
+  }
 
   return (
     <div className="image-nav">
@@ -30,8 +36,9 @@ const ImageNav: React.FC<IProps> = ({ images, activeId, setActiveImage}) => {
 
       <div className="image-nav__thumbnails-container">
         {images.map((image: Image, index: number) => {
-          
+
           const imgOnClick = () => setActiveImage(image);
+
           return (
             <img
               key={index}

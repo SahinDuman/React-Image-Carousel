@@ -17,7 +17,13 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  overflow-x: scroll;
+  overflow-x: auto;
+}
+
+.image-nav__thumbnails-container::-webkit-scrollbar {
+  display: none;
+  visibility: hidden;
+  width: 0;
 }
 
 .image-nav__thumbnail-img {
@@ -31,11 +37,17 @@
   border: 2px solid var(--main-color);
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   .image-nav {
     position: absolute;
     right: 0;
     bottom: 0;
     width: 45%;
+  }
+  .image-nav__button-container {
+    margin-bottom: 2em;
+  }
+  .image-nav__button {
+    font-size: 1.7em;
   }
 }

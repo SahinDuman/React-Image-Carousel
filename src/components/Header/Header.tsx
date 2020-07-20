@@ -3,7 +3,7 @@ import './header.css';
 
 const Header: React.FC = () => (
   <header className="header">
-    <h1>Urban <span className="main-color">images</span></h1>
+    <h1 className="header-title">Urban <span className="main-color">images</span></h1>
   </header>
 )
 

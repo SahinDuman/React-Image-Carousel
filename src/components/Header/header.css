@@ -5,10 +5,14 @@
   z-index: 1;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   .header {
     margin: 0;
     padding: 2em 3em;
     text-align: left;
+  }
+
+  .header-title {
+    font-size: 2em;
   }
 }

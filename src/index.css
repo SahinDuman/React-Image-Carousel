@@ -18,12 +18,11 @@ html {
   box-sizing: inherit;
 }
 
-body, h1, h2, h3, h4, h5, h6, p, ol, ul, img {
+body, h1, img {
   margin: 0;
   padding: 0;
   font-weight: normal;
 }
-
 
 /*Base styling*/
 body {
@@ -46,7 +45,7 @@ button {
   cursor: pointer;
 }
 
-/*Global styling*/
+/*Global styles*/
 
 .main-color {
   color: var(--main-color);

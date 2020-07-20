@@ -9,8 +9,7 @@ import images from '../../data/carouselImages';
 const ImageCarousel: React.FC = () => { 
   const [activeImage, setActiveImage] = useState(images[0]);
 
-  useEffect(() => {}, [activeImage])
-
+  useEffect(() => {}, [activeImage]);
 
   return (
     <div className="carousel__container">

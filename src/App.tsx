@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import ImageCarousel from './components/ImageCarousel/ImageCarousel';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
-      Hello world
+      <ImageCarousel />
     </div>
   );
 }

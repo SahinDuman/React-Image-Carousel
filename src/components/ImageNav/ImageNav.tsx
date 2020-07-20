@@ -5,48 +5,44 @@ import { Image } from '../../models';
 interface IProps {
   images: Image[],
   activeId: string,
-  setIndex: (num: number) => void,
-  index: number
+  setActiveImage: (obj: Image) => void,
 }
 
-const ImageNav: React.FC<IProps> = ({images, activeId, setIndex, index}) => {
+const ImageNav: React.FC<IProps> = ({ images, activeId, setActiveImage}) => {
 
+  const index: number = images.findIndex((image:Image) => image.id === activeId);
+  
   const next = () => {
-    if(index < images.length - 1) setIndex(index + 1);
-    console.log(index)
+    if (index < images.length - 1 && index !== -1) setActiveImage(images[index + 1]);
   }
 
   const prev = () => {
-    if(index !== 0)  setIndex(index - 1)
+    if (index !== 0 && index !== -1) setActiveImage(images[index - 1]);
   };
 
-  const imgOnClick = (event:any) => {
-    const imgIndex:number = images.findIndex((image:Image) => image.id === event.target.id);
-    if (imgIndex !== -1) setIndex(imgIndex);
-
-  }
 
   return (
     <div className="image-nav">
 
       <div className="image-nav__button-container">
         <button className="image-nav__button" onClick={prev}>Prev</button>
-        <button className="image-nav__button main-color bold"  onClick={next}>Next</button>
+        <button className="image-nav__button main-color bold" onClick={next}>Next</button>
       </div>
 
       <div className="image-nav__thumbnails-container">
-        {images.map((image:Image, index:number) => {
-
-          return(
-            <img 
-              key={index} 
-              src={image.img} 
-              alt={image.title} 
+        {images.map((image: Image, index: number) => {
+          
+          const imgOnClick = () => setActiveImage(image);
+          return (
+            <img
+              key={index}
+              src={image.img}
+              alt={image.title}
               id={image.id}
               onClick={imgOnClick}
-              className={image.id === activeId 
-                ? 'image-nav__thumbnail-img active-thumbnail' 
-                : 'image-nav__thumbnail-img'} 
+              className={image.id === activeId
+                ? 'image-nav__thumbnail-img active-thumbnail'
+                : 'image-nav__thumbnail-img'}
             />
           )
         })}

@@ -7,12 +7,9 @@ import './imageCarousel.css';
 import images from '../../data/carouselImages';
 
 const ImageCarousel: React.FC = () => { 
-  const [index, setIndex] = useState(0)
-  const [activeImage, setActiveImage] = useState(images[index]);
+  const [activeImage, setActiveImage] = useState(images[0]);
 
-  useEffect(() => {
-    setActiveImage(images[index])
-  }, [index])
+  useEffect(() => {}, [activeImage])
 
 
   return (
@@ -22,8 +19,7 @@ const ImageCarousel: React.FC = () => {
       <ImageNav 
         images={images} 
         activeId={activeImage.id} 
-        setIndex={setIndex} 
-        index={index} 
+        setActiveImage={setActiveImage}
       />
     </div>
   )

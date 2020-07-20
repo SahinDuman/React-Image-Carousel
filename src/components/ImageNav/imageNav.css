@@ -1,0 +1,27 @@
+.image-nav {
+  background-color: var(--bg-color-dark-opacity075);
+  padding: 1em 2em;
+  width: 100%;
+}
+
+.image-nav__button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.image-nav__thumbnails-container {
+  height: 7em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  overflow-x: scroll;
+}
+
+.image-nav__thumbnail-img {
+  width: 30%;
+  height: 100%;
+  margin: 0 0.5em;
+  object-fit: cover;
+}
